@@ -74,7 +74,7 @@ print( third.json() )
 
 `POST /send/`
 
-    curl -i -H 'Accept: application/json' -d 'co=KT&key=APIKEY' https://xates.dev:8080/send
+    curl -i -H 'Accept: application/json' -d 'co=KT&key=APIKEY' http://bankapi.lol:8880/send
 
 ##### Parameters
 - `co` : your Mobile carrier
@@ -112,7 +112,7 @@ im.show()
 
 `POST /solve/`
 
-    curl -i -H 'Accept: application/json' -d 'name=홍길동&mynum1=880101&mynum2=1&econum=01012345678&task=909074c4-ca5e-4c31-898e-d9e9c2caab11&text=897613&key=APIKEY' https://xates.dev:8080/solve
+    curl -i -H 'Accept: application/json' -d 'name=홍길동&mynum1=880101&mynum2=1&econum=01012345678&task=909074c4-ca5e-4c31-898e-d9e9c2caab11&text=897613&key=APIKEY' http://bankapi.lol:8880/solve
     
 ##### Parameters
 - `name` : your name
@@ -135,7 +135,7 @@ im.show()
 
 `POST /finish/`
 
-    curl -i -H 'Accept: application/json' -d 'task=909074c4-ca5e-4c31-898e-d9e9c2caab11&authnumber=765346&key=APIKEY' https://xates.dev:8080/finish
+    curl -i -H 'Accept: application/json' -d 'task=909074c4-ca5e-4c31-898e-d9e9c2caab11&authnumber=765346&key=APIKEY' http://bankapi.lol:8880/finish
 
 ##### Parameters
 - `task` : your taskID
@@ -158,7 +158,7 @@ im.show()
 
 `POST /send/`
 
-    curl -i -H 'Accept: application/json' -d 'co=KT&key=APIKEY' https://xates.dev:8080/send
+    curl -i -H 'Accept: application/json' -d 'co=KT&key=APIKEY' http://bankapi.lol:8880/send
 
 ##### 요청 양식
 - `co` : 통신사
@@ -196,7 +196,7 @@ im.show()
 
 `POST /solve/`
 
-    curl -i -H 'Accept: application/json' -d 'name=홍길동&mynum1=880101&mynum2=1&econum=01012345678&task=909074c4-ca5e-4c31-898e-d9e9c2caab11&text=897613&key=APIKEY' https://xates.dev:8080/solve
+    curl -i -H 'Accept: application/json' -d 'name=홍길동&mynum1=880101&mynum2=1&econum=01012345678&task=909074c4-ca5e-4c31-898e-d9e9c2caab11&text=897613&key=APIKEY' http://bankapi.lol:8880/solve
     
 ##### 요청 양식
 - `name` : 이름
@@ -219,7 +219,7 @@ im.show()
 
 `POST /finish/`
 
-    curl -i -H 'Accept: application/json' -d 'task=909074c4-ca5e-4c31-898e-d9e9c2caab11&authnumber=765346&key=APIKEY' https://xates.dev:8080/finish
+    curl -i -H 'Accept: application/json' -d 'task=909074c4-ca5e-4c31-898e-d9e9c2caab11&authnumber=765346&key=APIKEY' http://bankapi.lol:8880/finish
 
 ##### 요청 양식
 - `task` : taskID
