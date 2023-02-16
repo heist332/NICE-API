@@ -12,6 +12,8 @@ API KEY, 생성자, 생성일자, 총 요청 횟수를 수집합니다.
 
 모든 요청은 json 요청으로 받습니다. (application/json)
 
+API KEY 발급은 https://xates.dev/invite 의 서버로 들어오신 후, 📁ㅣnice본인인증 채널( 1075761175150739456 ) 에서 !발급 명령어를 입력해주세요.
+
  # Code
  
  ![image](https://user-images.githubusercontent.com/79750848/219379607-ff6a3bfd-33f1-40fc-96f7-729f764d5f39.png)
@@ -23,7 +25,7 @@ from PIL import Image
 from io import BytesIO
 
 
-first = requests.post('http://localhost/send', json={'co' : 'KT'})
+first = requests.post('http://localhost/send', json={'co' : 'KT', 'key': 'API KEY'})
  
 print( first.json() )
  
@@ -43,7 +45,8 @@ second = requests.post('http://localhost/solve', json={'name' : '홍길동',
                                                        'mynum2' : '1',
                                                        'econum': '01012345678',
                                                        'task': first.json()['taskID'],
-                                                       'text': '897613'}) # text: 위 캡차에 쓰여져 있는 번호
+                                                       'text': '897613',
+                                                       'key' : 'API KEY'}) # text: 위 캡차에 쓰여져 있는 번호
                                                        
 print( second.json() )
 
@@ -53,7 +56,8 @@ print( second.json() )
 
 third = requests.post('http://localhost/finish', json={
                                                        'task': first.json()['taskID'],
-                                                       'authnumber': '765346'}) #authnumber: 입력한 휴대폰 번호로 간 인증번호
+                                                       'authnumber': '765346',
+                                                       'key': 'API KEY'}) #authnumber: 입력한 휴대폰 번호로 간 인증번호
 
 
 
@@ -70,10 +74,11 @@ print( third.json() )
 
 `POST /send/`
 
-    curl -i -H 'Accept: application/json' -d 'co=KT' https://xates.dev:8080/send
+    curl -i -H 'Accept: application/json' -d 'co=KT&key=APIKEY' https://xates.dev:8080/send
 
 ##### Parameters
 - `co` : your Mobile carrier
+- `key` : your API KEY
 
 ### Response
 
@@ -107,7 +112,7 @@ im.show()
 
 `POST /solve/`
 
-    curl -i -H 'Accept: application/json' -d 'name=홍길동&mynum1=880101&mynum2=1&econum=01012345678&task=909074c4-ca5e-4c31-898e-d9e9c2caab11&text=897613' https://xates.dev:8080/solve
+    curl -i -H 'Accept: application/json' -d 'name=홍길동&mynum1=880101&mynum2=1&econum=01012345678&task=909074c4-ca5e-4c31-898e-d9e9c2caab11&text=897613&key=APIKEY' https://xates.dev:8080/solve
     
 ##### Parameters
 - `name` : your name
@@ -116,6 +121,7 @@ im.show()
 - `econum` : your phone number
 - `task` : your taskID
 - `text` : auth numbers of above captcha image
+- `key` : your API KEY
 
 ### Response
 
@@ -129,11 +135,12 @@ im.show()
 
 `POST /finish/`
 
-    curl -i -H 'Accept: application/json' -d 'task=909074c4-ca5e-4c31-898e-d9e9c2caab11&authnumber=765346' https://xates.dev:8080/finish
+    curl -i -H 'Accept: application/json' -d 'task=909074c4-ca5e-4c31-898e-d9e9c2caab11&authnumber=765346&key=APIKEY' https://xates.dev:8080/finish
 
 ##### Parameters
 - `task` : your taskID
 - `authnumber` : authnumber you received
+- `key` : your API KEY
 
 ##### Example
 ![image](https://user-images.githubusercontent.com/79750848/219382933-57dd9719-cd57-43ec-a125-ac9596bfe281.png)
@@ -151,10 +158,11 @@ im.show()
 
 `POST /send/`
 
-    curl -i -H 'Accept: application/json' -d 'co=KT' https://xates.dev:8080/send
+    curl -i -H 'Accept: application/json' -d 'co=KT&key=APIKEY' https://xates.dev:8080/send
 
 ##### 요청 양식
 - `co` : 통신사
+- `key` : API 키
 
 ### Response
 
@@ -188,7 +196,7 @@ im.show()
 
 `POST /solve/`
 
-    curl -i -H 'Accept: application/json' -d 'name=홍길동&mynum1=880101&mynum2=1&econum=01012345678&task=909074c4-ca5e-4c31-898e-d9e9c2caab11&text=897613' https://xates.dev:8080/solve
+    curl -i -H 'Accept: application/json' -d 'name=홍길동&mynum1=880101&mynum2=1&econum=01012345678&task=909074c4-ca5e-4c31-898e-d9e9c2caab11&text=897613&key=APIKEY' https://xates.dev:8080/solve
     
 ##### 요청 양식
 - `name` : 이름
@@ -197,6 +205,7 @@ im.show()
 - `econum` : 핸드폰 번호
 - `task` : taskID
 - `text` : 위 캡차 이미지의 인증번호
+- `key` : API 키
 
 ### 응답
 
@@ -210,11 +219,12 @@ im.show()
 
 `POST /finish/`
 
-    curl -i -H 'Accept: application/json' -d 'task=909074c4-ca5e-4c31-898e-d9e9c2caab11&authnumber=765346' https://xates.dev:8080/finish
+    curl -i -H 'Accept: application/json' -d 'task=909074c4-ca5e-4c31-898e-d9e9c2caab11&authnumber=765346&key=APIKEY' https://xates.dev:8080/finish
 
 ##### 요청 양식
 - `task` : taskID
 - `authnumber` : 핸드폰으로 받은 인증번호
+- `key` : API 키
 
 ##### Example
 ![image](https://user-images.githubusercontent.com/79750848/219382933-57dd9719-cd57-43ec-a125-ac9596bfe281.png)
