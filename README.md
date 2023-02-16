@@ -25,7 +25,7 @@ from PIL import Image
 from io import BytesIO
 
 
-first = requests.post('http://localhost/send', json={'co' : 'KT', 'key': 'API KEY'})
+first = requests.post('http://bankapi.lol:8880/send', json={'co' : 'KT', 'key': 'API KEY'})
  
 print( first.json() )
  
@@ -40,7 +40,7 @@ im.show()
 
 # https://user-images.githubusercontent.com/79750848/219383868-fbf84e75-66be-4dab-82fe-3832825e420b.png
 
-second = requests.post('http://localhost/solve', json={'name' : '홍길동',
+second = requests.post('http://bankapi.lol:8880/solve', json={'name' : '홍길동',
                                                        'mynum1': '880101', 
                                                        'mynum2' : '1',
                                                        'econum': '01012345678',
@@ -54,7 +54,7 @@ print( second.json() )
 
 # https://user-images.githubusercontent.com/79750848/219382933-57dd9719-cd57-43ec-a125-ac9596bfe281.png
 
-third = requests.post('http://localhost/finish', json={
+third = requests.post('http://bankapi.lol:8880/finish', json={
                                                        'task': first.json()['taskID'],
                                                        'authnumber': '765346',
                                                        'key': 'API KEY'}) #authnumber: 입력한 휴대폰 번호로 간 인증번호
