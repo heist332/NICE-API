@@ -3,6 +3,9 @@ NICE 본인인증 API
 
 NICE 본인인증 API를 무료 제공합니다.
 
+https://github.com/heist332/NICE-ROLE-BOT
+
+위 레포는 NICE 본인인증 API를 사용하여 역할 자동 지급을 해주는 봇입니다.
 
 ![image](https://user-images.githubusercontent.com/79750848/219369852-c5424576-67ed-48d4-ae34-1e9e6310ee34.png)
 
